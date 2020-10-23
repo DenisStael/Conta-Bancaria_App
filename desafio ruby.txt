@@ -1,0 +1,19 @@
+Desafio
+
+Construir uma api rails, usando a última versão do ruby e do rails, 
+com banco de dados postgres.
+
+Funcionalidades
+
+Onboarding: Criar cadastro de conta corrente aonde a pessoa deve informar, 
+nome, data de nascimento e foto do CPF ou RG. O retorno deve ser uma conta e uma senha.
+
+Transação
+
+Débito/Crédito: Permitir debitar um valor ou creditar em uma determinada conta, 
+retornando a conta, saldo anterior e o novo saldo;
+
+Relatório
+
+Extrato: Permitir ao informar uma conta retornar o extrato da conta com saldo anterior,
+movimentações de débito e crédito e ao final o saldo atualizado.
