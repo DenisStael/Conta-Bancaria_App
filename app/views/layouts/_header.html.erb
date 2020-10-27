@@ -1,0 +1,26 @@
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#expanded-menu"
+                aria-expanded=" false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <%= link_to 'Conta Bancária', root_path, class: 'navbar-brand' %>
+        </div>
+
+        <div class="collapse navbar-collapse" id="expanded-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <%= link_to 'Acessar Conta', "#" %>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <%= link_to 'Criar Conta', new_account_path %>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
