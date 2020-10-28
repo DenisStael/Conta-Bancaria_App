@@ -1,0 +1,38 @@
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <h2>Extrato</h2>
+    </div>
+
+    <div class="col-md-8 col-md-offset-2 col-xs-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Valor</th>
+            <th>Data</th>
+            <th>Operação</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @account_operations.each do |account_operation| %>
+          <% if account_operation.operation == "Crédito" %>
+          <tr style="background-color: rgb(187, 241, 187);">
+            <% else %>
+          <tr style="background-color: rgb(243, 190, 190);">
+            <% end %>
+            <td><%= account_operation.value %></td>
+            <td><%= account_operation.date_operation %></td>
+            <td><%= account_operation.operation %></td>
+            <td><%= link_to 'Detalhes', account_operation %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div>
+        <h3>Saldo Anterior: <%= current_user.previous_balance %></h3>
+        <h3>Saldo Atual: <%= current_user.current_balance %></h3>
+      </div>
+    </div>
+  </div>
+</div>

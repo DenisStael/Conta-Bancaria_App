@@ -1,0 +1,13 @@
+<%= render "layouts/errors_messages", object: f.object %>
+<div class="form-group">
+  <%= f.label :value %>
+  <%= f.number_field :value, step: 0.01, class: "form-control" %>
+</div>
+<%= f.label :operation %>
+<div class="form-group">
+  <%= f.select :operation, ['Crédito', 'Débito'] %>
+</div>
+
+<div class="form-group">
+  <%= f.submit "Confirmar", class: "btn btn-primary" %>
+</div>
