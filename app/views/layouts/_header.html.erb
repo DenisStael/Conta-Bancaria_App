@@ -12,14 +12,36 @@
 
         <div class="collapse navbar-collapse" id="expanded-menu">
             <ul class="nav navbar-nav navbar-right">
+                <% if !user_signed_in? %>
                 <li>
-                    <%= link_to 'Acessar Conta', "#" %>
+                    <%= link_to 'Acessar Conta', entrar_path %>
                 </li>
+                <% else %>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        Bem vindo, <%= current_user.name %> <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <%= link_to "Creditar", "#" %>
+                        </li>
+                        <li>
+                            <%= link_to "Debitar", "#" %>
+                        </li>
+                        <li class="divider" role="separator"></li>
+                        <li>
+                            <%= link_to 'Sair', sair_path, method: :delete %>
+                        </li>
+                    </ul>
+                </li>
+                <% end %>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <% if !user_signed_in? %>
                 <li>
                     <%= link_to 'Criar Conta', new_account_path %>
                 </li>
+                <% end %>
             </ul>
         </div>
     </div>

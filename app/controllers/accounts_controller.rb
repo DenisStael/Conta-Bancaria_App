@@ -1,5 +1,6 @@
 class AccountsController < ApplicationController
-    before_action :set_account, only: [:show, :edit, :update, :destroy]
+    before_action :require_logged_in_user, only: [:show]
+    before_action :set_account, only: [:show]
 
     def new
         @account = Account.new
@@ -8,22 +9,28 @@ class AccountsController < ApplicationController
     def show
     end
 
-    def create
-        @account = Account.new(account_params)
-        @account.account_number = new_account_number
-        @account.password = new_numeric_password
-
-        if @account.save
-            flash[:success] = "Conta criada com sucesso"
-            render :show
-        else
+	def create
+		@account = Account.new(account_params)
+        if user_signed_in?
+            flash[:danger] = "Desconecte-se da sessão atual para criar uma nova conta"
             render :new
+        else
+        	@account.account_number = new_account_number
+        	@account.password = new_numeric_password
+
+        	if @account.save
+            	flash[:success] = "Conta criada com sucesso"
+        		sign_in(@account)
+        		redirect_to entrar_path(@account)
+        	else
+            	render :new
+        	end
         end
     end
 
     private 
         def set_account
-            @account = Account.find(params[:id])
+            @account = current_user
         end
 
         def account_params
