@@ -15,11 +15,18 @@
         </thead>
 
         <tbody>
+          <% if @account_operations.empty? %>
+          <tr>
+            <td colspan="4" class="text-center">
+              <h3>Nenhuma movimentação na conta.</h3>
+            </td>
+          </tr>
+          <% end %>
           <% @account_operations.each do |account_operation| %>
           <% if account_operation.operation == "Crédito" %>
-          <tr style="background-color: rgb(187, 241, 187);">
+          <tr style="background-color: #bbf1bb">
             <% else %>
-          <tr style="background-color: rgb(243, 190, 190);">
+          <tr style="background-color: #f3bebe">
             <% end %>
             <td><%= account_operation.value %></td>
             <td><%= account_operation.date_operation %></td>

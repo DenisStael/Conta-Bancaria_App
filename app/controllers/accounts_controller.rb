@@ -34,7 +34,7 @@ class AccountsController < ApplicationController
         end
 
         def account_params
-            params.require(:account).permit(:name, :birth_date)
+            params.require(:account).permit(:name, :birth_date, :document_photo)
         end
 
         def new_account_number
