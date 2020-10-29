@@ -8,12 +8,15 @@
             <h3>Data de Nascimento: <%= @account.birth_date %></h3>
             <h3>Saldo: <%= @account.current_balance %></h3>
             <h3>Conta: <%= @account.account_number %></h3>
-            <a data-toggle="collapse" href="#collapsePassword" >
-                <p>Mostrar Senha</p>
-            </a>
-            <div class="collapse" id="collapsePassword">
-                <h3>Senha: <%= @account.password %></h3>
+            <% if @password %>
+            <div class="alert alert-danger" style="text-align: center;">
+                <strong>
+                    Atenção! Esta é sua senha numérica para acesso à sua conta,
+                    por favor grave-a pois não será possível recuperá-la depois!
+                </strong>
+                <h3>Senha: <%= @password %></h3>
             </div>
+            <% end %>
             <a data-toggle="collapse" href="#collapsePhoto">
                 <p>Visualizar foto do documento</p>
             </a>

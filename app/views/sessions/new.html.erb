@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3 col-xs-12">
             <h2>Entrar</h2>
-            <%= form_for :session, url: entrar_path, method: :post do |f| %>
+            <%= form_for :session, url: login_path, method: :post do |f| %>
             <div class="form-group">
                 <%= f.label :account_number %>
                 <%= f.number_field :account_number, placeholder: "Número", class: "form-control" %>

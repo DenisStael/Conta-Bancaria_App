@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_10_29_000351) do
     t.integer "account_number", null: false
     t.string "name", default: "", null: false
     t.date "birth_date", default: -> { "('now'::text)::date" }, null: false
-    t.string "password", default: "", null: false
+    t.string "password_digest", default: "", null: false
     t.float "current_balance", default: 0.0, null: false
     t.float "previous_balance", default: 0.0, null: false
     t.datetime "created_at", precision: 6, null: false

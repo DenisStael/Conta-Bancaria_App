@@ -15,13 +15,14 @@ class AccountsController < ApplicationController
             flash[:danger] = "Desconecte-se da sessão atual para criar uma nova conta"
             render :new
         else
-        	@account.account_number = new_account_number
-        	@account.password = new_numeric_password
+            @account.account_number = new_account_number
+            @password = new_numeric_password.to_s
+            @account.password = @password
 
-        	if @account.save
+            if @account.save
             	flash[:success] = "Conta criada com sucesso"
         		sign_in(@account)
-        		redirect_to entrar_path(@account)
+                render :show
         	else
             	render :new
         	end

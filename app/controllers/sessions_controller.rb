@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
   
     def create
       user = Account.find_by(account_number: params[:session][:account_number])
-      if user && user.password == params[:session][:password]
+      if user && user.authenticate(params[:session][:password])
         sign_in(user)
-        redirect_to entrar_path(user)
+        redirect_to login_path(user)
       else
         flash.now[:danger] = "Número da conta ou senha inválidos"
         render "new"
