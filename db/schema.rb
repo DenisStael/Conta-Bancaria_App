@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_10_29_000351) do
 
   create_table "account_operations", force: :cascade do |t|
     t.float "value", default: 0.0, null: false
-    t.date "date_operation", default: -> { "('now'::text)::date" }, null: false
+    t.date "date_operation", default: -> { "CURRENT_DATE" }, null: false
     t.string "operation", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_10_29_000351) do
   create_table "accounts", force: :cascade do |t|
     t.integer "account_number", null: false
     t.string "name", default: "", null: false
-    t.date "birth_date", default: -> { "('now'::text)::date" }, null: false
+    t.date "birth_date", default: -> { "CURRENT_DATE" }, null: false
     t.string "password_digest", default: "", null: false
     t.float "current_balance", default: 0.0, null: false
     t.float "previous_balance", default: 0.0, null: false
